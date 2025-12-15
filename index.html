@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice & Soul - Authentic Indian Culinary Journey</title>
+    <meta name="description"
+        content="Discover the rich flavors and heritage of authentic Indian cuisine through an immersive culinary journey.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🪷</span>
+                <span class="logo-text">Spice & Soul</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#dishes" class="nav-link">Signature Dishes</a></li>
+                <li><a href="#spices" class="nav-link">Spices</a></li>
+                <li><a href="#heritage" class="nav-link">Our Heritage</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Three.js Canvas -->
+    <section id="hero" class="hero-section">
+        <canvas id="three-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">A Journey Through</span>
+                <span class="title-line main">Indian Flavors</span>
+            </h1>
+            <p class="hero-subtitle">Where tradition meets culinary artistry</p>
+            <button class="cta-button">Explore Our Menu</button>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Signature Dishes Section -->
+    <section id="dishes" class="dishes-section">
+        <div class="section-header">
+            <span class="section-tag">Our Specialties</span>
+            <h2 class="section-title">Signature Dishes</h2>
+            <p class="section-description">Each dish tells a story of tradition, passion, and authentic flavors</p>
+        </div>
+
+        <div class="dishes-grid">
+            <div class="dish-card" data-dish="biryani">
+                <div class="dish-image-wrapper">
+                    <img src="images/biryani_hero_1765818874690.png" alt="Biryani" class="dish-image">
+                    <div class="dish-overlay"></div>
+                </div>
+                <div class="dish-info">
+                    <h3 class="dish-name">Royal Biryani</h3>
+                    <p class="dish-description">Fragrant basmati rice layered with aromatic spices and tender meat,
+                        slow-cooked to perfection</p>
+                    <div class="dish-tags">
+                        <span class="tag">Saffron</span>
+                        <span class="tag">Aromatic</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-card" data-dish="butter-chicken">
+                <div class="dish-image-wrapper">
+                    <img src="images/butter_chicken_1765819018150.png" alt="Butter Chicken" class="dish-image">
+                    <div class="dish-overlay"></div>
+                </div>
+                <div class="dish-info">
+                    <h3 class="dish-name">Butter Chicken</h3>
+                    <p class="dish-description">Creamy tomato-based curry with tandoori chicken, finished with butter
+                        and cream</p>
+                    <div class="dish-tags">
+                        <span class="tag">Rich</span>
+                        <span class="tag">Creamy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-card" data-dish="dosa">
+                <div class="dish-image-wrapper">
+                    <img src="images/dosa_platter_1765819156389.png" alt="Dosa" class="dish-image">
+                    <div class="dish-overlay"></div>
+                </div>
+                <div class="dish-info">
+                    <h3 class="dish-name">Masala Dosa</h3>
+                    <p class="dish-description">Crispy rice crepe filled with spiced potato, served with chutneys and
+                        sambar</p>
+                    <div class="dish-tags">
+                        <span class="tag">South Indian</span>
+                        <span class="tag">Crispy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-card" data-dish="paneer">
+                <div class="dish-image-wrapper">
+                    <img src="images/paneer_tikka_1765819241566.png" alt="Paneer Tikka" class="dish-image">
+                    <div class="dish-overlay"></div>
+                </div>
+                <div class="dish-info">
+                    <h3 class="dish-name">Paneer Tikka</h3>
+                    <p class="dish-description">Marinated cottage cheese grilled in tandoor with bell peppers and onions
+                    </p>
+                    <div class="dish-tags">
+                        <span class="tag">Tandoori</span>
+                        <span class="tag">Smoky</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spices Section -->
+    <section id="spices" class="spices-section">
+        <div class="spices-content">
+            <div class="spices-text">
+                <span class="section-tag">The Heart of Flavor</span>
+                <h2 class="section-title">Our Spice Journey</h2>
+                <p class="spices-description">
+                    Every dish begins with carefully selected spices, each bringing its own character
+                    and story. From the golden warmth of turmeric to the royal essence of saffron,
+                    our spices are sourced from the finest regions of India.
+                </p>
+                <div class="spice-list">
+                    <div class="spice-item">
+                        <span class="spice-icon">🌶️</span>
+                        <div class="spice-info">
+                            <h4>Kashmiri Chili</h4>
+                            <p>Deep red color, mild heat</p>
+                        </div>
+                    </div>
+                    <div class="spice-item">
+                        <span class="spice-icon">✨</span>
+                        <div class="spice-info">
+                            <h4>Saffron Threads</h4>
+                            <p>Luxurious aroma, golden hue</p>
+                        </div>
+                    </div>
+                    <div class="spice-item">
+                        <span class="spice-icon">🟡</span>
+                        <div class="spice-info">
+                            <h4>Turmeric Powder</h4>
+                            <p>Earthy flavor, vibrant color</p>
+                        </div>
+                    </div>
+                    <div class="spice-item">
+                        <span class="spice-icon">🌿</span>
+                        <div class="spice-info">
+                            <h4>Green Cardamom</h4>
+                            <p>Sweet, aromatic essence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spices-visual">
+                <img src="images/spices_collection_1765819354376.png" alt="Indian Spices" class="spices-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Section -->
+    <section id="heritage" class="heritage-section">
+        <div class="heritage-image-wrapper">
+            <img src="images/kitchen_heritage_1765819432407.png" alt="Traditional Kitchen" class="heritage-image">
+            <div class="heritage-overlay"></div>
+        </div>
+        <div class="heritage-content">
+            <span class="section-tag light">Our Story</span>
+            <h2 class="section-title light">Culinary Heritage</h2>
+            <p class="heritage-text">
+                For generations, our family has preserved the authentic recipes and cooking techniques
+                passed down through time. Each dish is prepared with the same dedication and love that
+                has defined our culinary tradition.
+            </p>
+            <p class="heritage-text">
+                From our traditional tandoor to modern presentation, we bridge the past and present,
+                ensuring every meal is an authentic celebration of Indian flavors.
+            </p>
+            <div class="heritage-stats">
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Traditional Recipes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Years of Heritage</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Authentic Spices</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🪷</span>
+                <span class="logo-text">Spice & Soul</span>
+            </div>
+            <p class="footer-tagline">Where every dish tells a story</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="three-scene.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
