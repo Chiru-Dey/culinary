@@ -35,6 +35,14 @@
     --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
     --shadow-strong: 0 16px 64px rgba(0, 0, 0, 0.2);
     --blur-glass: blur(10px);
+    /* Sunset Gradient */
+        --gradient-sunset: linear-gradient(135deg, #FF512F 0%, #F09819 25%, #FF6B6B 50%, #C850C0 75%, #4158D0 100%);
+    }
+    
+    /* Letter-by-Letter Animation Styles */
+    .letter-span {
+        display: inline-block;
+        transform-origin: center center;
 }
 
 /* ==========================================

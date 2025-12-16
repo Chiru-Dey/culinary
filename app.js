@@ -14,7 +14,55 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initNavigation();
     initDishCardInteractions();
+    initGradientTextAnimations();
 });
+
+// ==========================================
+// GRADIENT TEXT ANIMATIONS (Letter-by-Letter Color Change)
+// ==========================================
+
+function initGradientTextAnimations() {
+    // Select all headings and subheadings
+    const headings = document.querySelectorAll('.section-title, .section-tag, .dish-name, .spice-info h4');
+
+    headings.forEach(heading => {
+        // Skip if already processed
+        if (heading.dataset.animated) return;
+        heading.dataset.animated = 'true';
+
+        // Split text into spans for individual letter animation
+        const originalText = heading.textContent;
+        heading.innerHTML = originalText
+            .split('')
+            .map(char =>
+                char === ' '
+                    ? `<span class="letter-span">&nbsp;</span>`
+                    : `<span class="letter-span">${char}</span>`
+            )
+            .join('');
+
+        // Select all letter spans
+        const letters = heading.querySelectorAll('.letter-span');
+
+        // Set initial color (sunset orange)
+        gsap.set(letters, {
+            color: '#FF512F',
+        });
+
+        // Letter-by-letter color change animation tied to scroll
+        gsap.to(letters, {
+            color: '#FFF8E7',  // End color (cream/white)
+            stagger: 0.1,     // Each letter animates one by one
+            ease: 'none',
+            scrollTrigger: {
+                trigger: heading,
+                start: 'top 80%',
+                end: 'top 30%',
+                scrub: true,  // Tied to scroll position
+            },
+        });
+    });
+}
 
 // ==========================================
 // HERO SECTION ANIMATIONS
@@ -102,42 +150,49 @@ function initScrollAnimations() {
         }
     });
 
-    // Stats counter animation
+    // Stats counter animation (countup from 0 - replays every time)
     gsap.utils.toArray('.stat-number').forEach(stat => {
         const value = stat.textContent;
         const number = parseInt(value);
 
+        // Store original value
+        stat.dataset.target = number;
+
+        // Set initial value to 0
+        stat.textContent = '0+';
+
+        // Function to play countup animation
+        const playCountup = () => {
+            const target = parseInt(stat.dataset.target);
+            const obj = { val: 0 };
+
+            gsap.to(obj, {
+                val: target,
+                duration: 2.5,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    stat.textContent = Math.floor(obj.val) + '+';
+                }
+            });
+        };
+
+        // Function to reset to 0
+        const resetCount = () => {
+            stat.textContent = '0+';
+        };
+
         ScrollTrigger.create({
             trigger: stat,
-            start: 'top 80%',
-            onEnter: () => {
-                gsap.to(stat, {
-                    innerHTML: number,
-                    duration: 2,
-                    snap: { innerHTML: 1 },
-                    onUpdate: function () {
-                        stat.innerHTML = Math.ceil(this.targets()[0].innerHTML) + '+';
-                    }
-                });
-            },
-            once: true
+            start: 'top 85%',
+            end: 'bottom 15%',
+            onEnter: playCountup,       // Play when scrolling down into view
+            onEnterBack: playCountup,   // Play when scrolling up into view
+            onLeave: resetCount,        // Reset when leaving from bottom
+            onLeaveBack: resetCount,    // Reset when leaving from top
         });
     });
 
-    // Section titles reveal
-    gsap.utils.toArray('.section-title').forEach(title => {
-        gsap.from(title, {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 85%',
-                end: 'top 60%',
-                scrub: 1,
-            }
-        });
-    });
+    // Section titles reveal (removed - handled by gradient animation)
 }
 
 // ==========================================
